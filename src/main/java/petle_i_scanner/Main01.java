@@ -15,8 +15,6 @@ public class Main01 {
         }
         System.out.println("ilość kolejnych liczb do zsumowaia: " + counter);
 
-        separator();
-
         //to co wyżej ale dla parzystych i nieparzystych
         int sumaParzyste = 0;
         int sumaNieparzyste = 0;
@@ -38,8 +36,6 @@ public class Main01 {
         }
         System.out.printf("Nieparzyste %d, Parzyste %d\n", nieparzysteCounter, parzysteCounter);
 
-        separator();
-
         //100 kolejnych liczb po 4 w wierszu
         for (int i = 0; i < 100; i++) {
             if (i % 4 == 0) {
@@ -48,15 +44,11 @@ public class Main01 {
                 System.out.print(i + "\t");
         }
 
-        separator();
-
         //Scanner imie i nazwisko
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj imie i nazwisko: ");
         String s = scanner.nextLine();
         System.out.print("Hello " + s);
-
-        separator();
 
         //Scanner sumowanie integerów
         System.out.println("Podaj liczbę:");
@@ -65,14 +57,10 @@ public class Main01 {
         int j = scanner.nextInt();
         System.out.printf("%d + %d = %d", i, j, i+j);
 
-        separator();
-
         //Scanner pole czegoś tam przy użyciu double
         System.out.println("Podaj radius (double):");
         double num = scanner.nextDouble();
         System.out.printf("Area: %.2f",2 * Math.PI * num);
-
-        separator();
 
         //Scanner sprawdzający czy wpisana liczba jest parzysta czy nie
         System.out.println("Podaj liczbę:");
@@ -82,8 +70,6 @@ public class Main01 {
         } else {
             System.out.println(0);
         }
-
-        separator();
 
         //Scanner w pętli do wpisywania i wyświetlania 5 imion
         int n = 0;
@@ -97,8 +83,6 @@ public class Main01 {
             System.out.println("Hello " + name);
         }
 
-        separator();
-
         //Scanner wypisujący n-podanych elementów od 1.
         System.out.println("How many elements?");
         int[] numArray = new int[scanner.nextInt()];
@@ -111,8 +95,6 @@ public class Main01 {
             g++;
         }
 
-        separator();
-
         //Scanner przyjmujący 10 integerów od usera i wyświetlający je razem z indeksami tablicy
         int[] integers = new int[10];
         for (int h = 0; h < integers.length; h++) {
@@ -124,9 +106,4 @@ public class Main01 {
         }
 
     }
-
-    private static void separator() {
-        System.out.println("\n===========================================");
-    }
-
 }
