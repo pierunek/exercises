@@ -2,61 +2,20 @@ package petle_i_scanner;
 
 import java.util.Scanner;
 
-public class Main01 {
+public class ScannerZadania {
     public static void main(String[] args) {
-
-        //ile kolejnych liczb trzeba zsumować do 1000
-        int result = 0;
-        int counter = 0;
-
-        while (result < 1000) {
-            result += counter;
-            counter++;
-        }
-        System.out.println("ilość kolejnych liczb do zsumowaia: " + counter);
-
-        //to co wyżej ale dla parzystych i nieparzystych
-        int sumaParzyste = 0;
-        int sumaNieparzyste = 0;
-        int parzysteCounter = 0;
-        int nieparzysteCounter = 0;
-        int globalCounter = 0;
-
-        while (sumaParzyste < 1000 && sumaNieparzyste < 1000) {
-            if (globalCounter % 2 ==0) {
-//                System.out.printf("sumaParzyste %d add %d result %d\n", sumaParzyste, globalCounter, sumaParzyste + globalCounter);
-                sumaParzyste+=globalCounter;
-                parzysteCounter++;
-            } else {
-//                System.out.printf("sumaNieparzyste %d add %d result %d\n", sumaNieparzyste, globalCounter, sumaNieparzyste + globalCounter);
-                sumaNieparzyste+=globalCounter;
-                nieparzysteCounter++;
-            }
-            globalCounter++;
-        }
-        System.out.printf("Nieparzyste %d, Parzyste %d\n", nieparzysteCounter, parzysteCounter);
-
-        //100 kolejnych liczb po 4 w wierszu
-        for (int i = 0; i < 100; i++) {
-            if (i % 4 == 0) {
-                System.out.println();
-            }
-                System.out.print(i + "\t");
-        }
 
         //Scanner imie i nazwisko
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj imie i nazwisko: ");
         String s = scanner.nextLine();
         System.out.print("Hello " + s);
-
         //Scanner sumowanie integerów
         System.out.println("Podaj liczbę:");
         int i = scanner.nextInt();
         System.out.println("Podaj drugą liczbę:");
         int j = scanner.nextInt();
         System.out.printf("%d + %d = %d", i, j, i+j);
-
         //Scanner pole czegoś tam przy użyciu double
         System.out.println("Podaj radius (double):");
         double num = scanner.nextDouble();
