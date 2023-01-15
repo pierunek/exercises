@@ -1,6 +1,20 @@
 package zagadnienia;
 
+
+import java.util.Scanner;
+
+//klasa składa się z [modyfikator dostępu][słowo kluczowe - class][nazwa - przyjęło się że zaczyna się z dużej litery]
+//modyfikator dostępu oznacza widoczność naszej klasy na przestrzeni całego projektu, istnieją 4 modyfikatory:
+//public, protected, private i default (jego się po prostu nie pisze przed słowem kluczowym class
+//na tym etapie nauki zalecałbym stosowanie public
+// {} - otwierają i zamykają ciało naszej klasy
+//w ciele klasy umieszczamy atrybuty jak np. pola i metody
 public class Zagadnienia {
+
+    //metoda statyczna main jest to główna metoda naszej aplikacji, która pozwala odpalić nam napisany przez nas kod
+    //budowa metody: [modyfikator dostępu - public][słowo kluczowe - static][typ zwracanej wartości - void][nazwa metody - main][parametry przekazane w nawiasie - czyli tablica elementów typu String o nazwie args]
+    //void oznacza, że metoda nie zwraca żadnej wartości i nie jest wymagane dodanie słowa kluczowego return
+    //można utworzyć skrótem psvm + tab
     public static void main(String[] args) {
         //byte, short, int, long - typy danych liczb całkowitych, różnią się pojemnością zakresu liczb
         //float, double - typ danych liczbowych zmiennoprzecinkowych, float bodajże do 6 miejsc po przecinku, double więcej
@@ -75,8 +89,8 @@ public class Zagadnienia {
         }
 
         //do wyświetlenia wszystkich elementów z tablicy możemy użyć porównania do długości tablicy
-        for (int i = 0; i < tablica.length; i++) {
-            System.out.println(tablica[i]);
+        for (int index = 0; index < tablica.length; index++) {
+            System.out.println(tablica[index]);
         }
         //enhanced for, dobra do używania na kolekcjach, tudzież tablicach, obiektach etc
         //deklarujemy w niej zmienną, w tym wypadku liczbową, do której po kolei będą podstawiane poszczególne
@@ -142,5 +156,64 @@ public class Zagadnienia {
             System.out.println(tablica[index]);
             index++;
         }
+
+//        scanner - przykład programu wypełniającego 5-elementową tablicę Stringów wpisami z konsoli do momentu uzupełnienia pełnej tablicy lub wpisania exit
+        //Scanner to klasa służąca do m.in. wczytywania danych z konsoli, odczytywania danych z plików tekstowych itp
+        //My póki co na zajęciach używamy go do wczytywania danych z konsoli
+        //Aby z niego skorzystać musimy zainicjalizować obiekt klasy Scanner
+        //Podajemy nazwe obiektu Scanner, następnie nazwę naszej zmiennej, do której przypisujemy(=) nową instancję obiektu
+        //wykorzystujemy do tego słowo kluczowe new, ponownie nazwa klasy i jako parametr podajemy System.in, który pozwoli na pobieranie danych z konsoli
+        Scanner scanner = new Scanner(System.in);
+
+        //deklarujemy tablicę String o nazwie wyrazy, używając słowa kluczowego new i podając rozmiar tablicy (5 elementów)
+        String[] wyrazy = new String[5]; //5 elementów o indeksach 0-4
+        //deklarujemy licznik
+        int licznik3 = 0;
+        //ustawiamy pętlę while wykonywującą się dopóki zmienna licznik3 jest mniejsza od długości tablicy wyrazy (wyrazy.length)
+        while (licznik3 < wyrazy.length) {
+            System.out.println("Podaj " + licznik3 + 1 + " wyraz "); //wyświetlamy informację, że należy podać wyraz
+            String wyraz = scanner.nextLine(); //przy pomocy metody nextLine() z klasy Scanner, wyciągamy z konsoli wpisaną wartość i zapisujemy w zmiennej typu String
+            if (wyraz.equals("exit")) { //sprawdzamy, czy zmienna wyraz jest równa exit
+                break; //jeżeli tak to przerywamy działanie pętli przy pomocy break
+            }
+            wyrazy[licznik3] = wyraz; //do tablicy wyrazy dla elementu o indeksie licznik3 przypisujemy podany wyraz
+            licznik3++; //na koniec zwiększamy licznik o jeden
+        }
+        //a następnie w pętli for po wykonaniu pętli while, wyświetlamy elementy wprowadzone do tablicy
+        for (int i = 0; i < wyrazy.length; i++) {
+            System.out.println("Wyraz o indeksie " + i + " = " + wyrazy[i]);
+        }
+        scanner.close(); //dobrą praktyką jest zamykanie scannera metodą close(), po zakończeniu korzystania z niego
+
+        //switch jest troche lepszym odpowiednikiem if.. else if blocku
+        //możemy zadeklarować sobie jakąś zmienną
+        int zmienna = 1;
+        //a następnie używając switcha, podając tą zmienną jako parametr, możemy sprawdzać czy zmienna spełnia określone kryteria i w zależności od nich wykonać odpowiednie operacje
+        switch(zmienna) {
+            case 1: //case 1, oznacza, że w przypadku gdy zmienna == 1, to wykonaj poniższą część kodu
+                System.out.println("Dzień dobry"); //czyli wyświetl dzień dobry
+                break; //na końcu każdego case'a musi znajdować się break, aby nie wyświetlać poniższych akcji z pozostałych case
+            case 2: //w przypadku gdy zmienna == 2, wypisz w konsoli Siema
+                System.out.println("Siema");
+                break;
+            case 500: //w przypadku gdy zmienna == 500, wypisz elo itd itp
+                System.out.println("Elo");
+                break;
+            default: //opcjonalna pozycja do dodania na końcu switch blocka, jeżeli nasza zmienna nie spełni żadnego z powyższych warunków to możemy ustawić coś domyślnego
+                System.out.println("Żodyn nie pasuje"); //i np wyświetlić info, że żodyn nie pasuje
+        }
+
+        //a żeby lepiej zobrazowac jak to działa, poniżej przykład tej samej logiki przy użyciu if... else if
+        if (zmienna == 1) { //case 1
+            System.out.println("Dzień dobry");
+        } else if (zmienna == 2) { //case 2
+            System.out.println("Siema");
+        } else if (zmienna == 500) { //case 500
+            System.out.println("Elo");
+        } else { //default
+            System.out.println("Żodyn nie pasuje");
+        }
+
+
     }
 }
